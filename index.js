@@ -1,7 +1,14 @@
 function largestSubarraySum(array) {
-  let sum = array.reduce(function (a, b) {
-    return a + b;
-  }, 0);
+  let largestSum = 0;
 
-  return sum;
+  for (let i = 0; i < array.length; i++) {
+    // iterates over each integer element
+    let sumFixedStart = 0; // declares a variables
+    for (let j = i; j < array.length; j++) {
+      sumFixedStart += array[j];
+      largestSum = Math.max(largestSum, sumFixedStart);
+    }
+  }
+
+  return largestSum;
 }
